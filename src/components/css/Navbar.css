@@ -1,0 +1,22 @@
+.navbar {
+  display: flex;
+  flex: 1 100%;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid;
+  padding: 0.25rem 0rem;
+  margin-bottom: 3rem;
+  border-color: rgb(233, 233, 233);
+  font-size: 0.8rem;
+}
+
+.navbar #left,
+#right {
+  padding: 0rem 2rem;
+}
+#left {
+  display: flex;
+  align-items: baseline;
+}

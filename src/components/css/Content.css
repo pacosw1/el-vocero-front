@@ -1,0 +1,9 @@
+.content {
+  display: flex;
+  flex: 1 100%;
+  min-height: 80vh;
+}
+
+option {
+  font-size: 0.5rem;
+}

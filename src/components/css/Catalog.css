@@ -1,0 +1,9 @@
+.catalog-container {
+  display: flex;
+  flex: 1 100%;
+}
+.catalog {
+  display: flex;
+  flex: 1 100%;
+  flex-wrap: wrap;
+}
