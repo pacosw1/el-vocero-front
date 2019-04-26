@@ -14,7 +14,7 @@ class NewAd extends Component {
           </div>
 
           <div>
-            <button>Publicar</button>
+            <button style={{ marginBottom: "3rem" }}>Publicar</button>
           </div>
         </div>
         <div id="right">
