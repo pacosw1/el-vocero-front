@@ -13,8 +13,8 @@ class NewAd extends Component {
             <input placeholder="Descripción" style={{}} />
           </div>
 
-          <div style={{ padding: "2rem" }}>
-            <button style={{ padding: ".5rem 2rem" }}>Publicar</button>
+          <div>
+            <button>Publicar</button>
           </div>
         </div>
         <div id="right">

@@ -5,12 +5,18 @@
   justify-items: center;
 }
 
-.new-ad input {
+.new-ad input,
+button {
   padding: 1.2rem;
   margin: 0.4rem;
   width: 50%;
 }
-
+button {
+  border-radius: 0.2rem;
+  color: white;
+  border: none;
+  background-color: rgb(55, 115, 167);
+}
 #down,
 #right {
   align-items: center;
@@ -42,5 +48,5 @@
 }
 
 div {
-  border: 1px solid;
+  border: 0px solid;
 }
