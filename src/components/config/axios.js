@@ -10,7 +10,19 @@ exports.getAds = axios
   .catch(err => {
     return err;
   });
-
+exports.emailCheck = email => {
+  return axios.get(`users/email/${email}`);
+};
+exports.usernameCheck = username => {
+  return axios.get(`users/username/${username}`);
+};
+exports.register = account => {
+  return axios.post("users", {
+    username: account.username,
+    password: account.password,
+    email: account.email
+  });
+};
 exports.getProductById = id =>
   axios
     .get(`products/${id}`)
