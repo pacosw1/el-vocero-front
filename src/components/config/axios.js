@@ -1,4 +1,5 @@
 let axios = require("axios");
+let jwtDecode = require("jwt-decode");
 
 axios.defaults.baseURL = "http://localhost:3001/";
 
@@ -23,9 +24,9 @@ exports.register = account => {
     email: account.email
   });
 };
-exports.getProductById = id =>
+exports.getItemById = id =>
   axios
-    .get(`products/${id}`)
+    .get(`ads/${id}`)
     .then(result => {
       return result.data;
     })
@@ -46,5 +47,19 @@ exports.create = id =>
       return result.data;
     })
     .catch(err => err);
+
+exports.login = account => {
+  let { username, password } = account;
+  return axios.post("auth", {
+    username: username,
+    password: password
+  });
+};
+
+exports.getUser = () => {
+  if (localStorage.token) {
+    return jwtDecode(localStorage.token);
+  }
+};
 
 //TODO create cart

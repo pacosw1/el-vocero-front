@@ -10,8 +10,8 @@ class Preview extends Component {
           <img src={imagePath} alt={""} />
         </div>
         <div id="info">
-          <p>{title}</p>
-          <p>${price}</p>
+          <h3>{title}</h3>
+          <h5 style={{ fontSize: ".8rem" }}>${price}</h5>
         </div>
       </div>
     );

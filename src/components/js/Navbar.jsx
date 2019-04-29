@@ -1,10 +1,26 @@
 import React, { Component } from "react";
 import "../css/Navbar.css";
 import { NavLink } from "react-router-dom";
+let axios = require("../config/axios");
 class Navbar extends Component {
-  state = {};
+  state = {
+    user: {}
+  };
 
+  componentDidMount() {
+    if (localStorage.token) {
+      this.setState({
+        user: axios.getUser(),
+        loggedIn: true
+      });
+    } else {
+      this.setState({
+        loggedIn: false
+      });
+    }
+  }
   render() {
+    let { loggedIn, user } = this.state;
     return (
       <div className="navbar">
         <div id="left">
@@ -13,12 +29,25 @@ class Navbar extends Component {
           </NavLink>
         </div>
         <div id="right">
-          <NavLink className="no-link" to="/cart">
-            Vende Gratis
-          </NavLink>
+          {loggedIn ? <LoggedIn username={user.username} /> : <NotLogged />}
         </div>
       </div>
     );
   }
 }
+
+const LoggedIn = props => {
+  return (
+    <NavLink className="no-link" to="/account">
+      {props.username}
+    </NavLink>
+  );
+};
+const NotLogged = props => {
+  return (
+    <NavLink className="no-link" to="/login">
+      Log In
+    </NavLink>
+  );
+};
 export default Navbar;

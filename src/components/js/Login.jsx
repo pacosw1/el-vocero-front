@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../css/Login.css";
+let axios = require("../config/axios");
 class Login extends Component {
   state = {
     account: {
@@ -8,7 +9,16 @@ class Login extends Component {
     }
   };
 
-  onSubmit() {}
+  onSubmit = async () => {
+    let { account } = this.state;
+    let result = await axios.login(account);
+    console.log(result);
+    let { status, message, token } = result.data;
+    if (status == 1) {
+      localStorage.token = token;
+      window.location = "/";
+    }
+  };
   onChange(field) {
     let { account } = this.state;
     account[field.target.name] = field.target.value;
@@ -31,7 +41,7 @@ class Login extends Component {
             type="password"
             placeholder="password"
           />
-          <button>Sign in</button>
+          <button onClick={() => this.onSubmit()}>Sign in</button>
         </div>
       </div>
     );

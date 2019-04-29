@@ -1,0 +1,10 @@
+.App {
+  background-color: #ffffffc4;
+  color: rgb(56, 56, 56) !important;
+}
+.App * {
+  color: rgb(56, 56, 56);
+  text-decoration: "none";
+  text-decoration-line: none;
+  text-decoration-color: black;
+}

@@ -1,12 +1,16 @@
 import React, { Component } from "react";
+
 import Navbar from "./Navbar";
 import Content from "./Content";
 import { Footer } from "./Footer";
+
+var jwtDecode = require("jwt-decode");
 let axios = require("../config/axios");
 
 class Vocero extends Component {
   state = {
-    items: []
+    items: [],
+    user: {}
   };
 
   async componentDidMount() {

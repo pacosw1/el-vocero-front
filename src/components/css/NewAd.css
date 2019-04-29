@@ -13,8 +13,9 @@ button {
 }
 button {
   border-radius: 0.2rem;
-  color: white;
+  color: white !important;
   border: none;
+  font-size: 0.89rem;
   background-color: rgb(55, 115, 167);
 }
 #down,

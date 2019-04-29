@@ -3,13 +3,23 @@ import Preview from "./Preview";
 import { NavLink } from "react-router-dom";
 import "../css/Catalog.css";
 import Sidebar from "./Sidebar";
+import axios from "../config/axios";
 class Catalog extends Component {
-  state = {};
+  state = {
+    user: {}
+  };
+
+  async componentDidMount() {
+    let user = await axios.getUser();
+    this.setState({
+      user: user
+    });
+  }
   render() {
     let { items } = this.props;
     let list = items.map(item => {
       return (
-        <NavLink className="no-link" to={`products/${item._id}`}>
+        <NavLink className="no-link" to={`ads/${item._id}`}>
           <Preview item={item} />
         </NavLink>
       );
