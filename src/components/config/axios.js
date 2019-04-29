@@ -1,5 +1,6 @@
 let axios = require("axios");
 let jwtDecode = require("jwt-decode");
+let _ = require("lodash");
 
 axios.defaults.baseURL = "http://localhost:3001/";
 
@@ -11,6 +12,19 @@ exports.getAds = axios
   .catch(err => {
     return err;
   });
+
+exports.createAd = async (post, formData) => {
+  post.active = 1;
+  post.user = await axios.get(`users/${post.userId}`);
+  await axios.post("/ads", post).then(res => {
+    formData.append("adId", res.data.item._id);
+    return axios.post("/images", formData);
+  });
+};
+
+exports.saveImage = async formData => {
+  await axios.post("/images", formData);
+};
 exports.emailCheck = email => {
   return axios.get(`users/email/${email}`);
 };
@@ -32,7 +46,7 @@ exports.getItemById = id =>
     })
     .catch(err => err);
 
-exports.getImages = id =>
+exports.getImage = id =>
   axios
     .get(`images/${id}`)
     .then(result => {
@@ -59,7 +73,7 @@ exports.login = account => {
 exports.getUser = () => {
   if (localStorage.token) {
     return jwtDecode(localStorage.token);
-  }
+  } else return {};
 };
 
 //TODO create cart

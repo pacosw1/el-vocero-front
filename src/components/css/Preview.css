@@ -20,6 +20,12 @@
 }
 #info {
   font-size: 0.8rem;
+  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+#info * {
+  margin: 0.25rem;
 }
 
 #foto:hover {

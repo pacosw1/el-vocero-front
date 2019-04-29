@@ -10,6 +10,7 @@ let axios = require("../config/axios");
 class Vocero extends Component {
   state = {
     items: [],
+    data: [],
     user: {}
   };
 

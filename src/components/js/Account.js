@@ -22,6 +22,9 @@ class Account extends Component {
           <NavLink to="/account/profile">
             <h3>Personal Details</h3>
           </NavLink>
+          <NavLink to="/account/profile">
+            <h3>Messages</h3>
+          </NavLink>
           <NavLink to="/account/new">
             <h3>Post Ad</h3>
           </NavLink>
@@ -48,10 +51,13 @@ const PersonalInfo = props => {
   let { username, email } = props.user;
   return (
     <div>
-      <h5>Username</h5>
-      <p>{username}</p>
       <h5>Email</h5>
       <p>{email}</p>
+      <h5>Username</h5>
+      <p>{username}</p>
+      <h5>Phone Number</h5>
+
+      <h5>Location</h5>
     </div>
   );
 };
