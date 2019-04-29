@@ -21,9 +21,14 @@ class Register extends Component {
 
     if (usernameCheck.data.status == 1)
       return alert(usernameCheck.data.message);
-    let result = await axios.register(account);
+    await axios.register(account);
 
-    alert(result.data.message);
+    let login = await axios.login(account);
+    if (login.data.status == 1) {
+      localStorage.token = login.data.token;
+      window.location = "/";
+    }
+    // window.location = "/";
   }
   onChange(field) {
     let { account } = this.state;

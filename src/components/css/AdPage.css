@@ -33,9 +33,6 @@ select {
   margin: 0rem;
 }
 
-div {
-  border: 0px solid;
-}
 .item-info {
   display: flex;
   flex: 1;

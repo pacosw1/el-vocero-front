@@ -6,15 +6,15 @@ class NewAd extends Component {
     return (
       <div className="new-ad">
         <div className="vertical-container">
-          <div>
+          <div className="left-info">
             <h1>Crear nuevo anuncio</h1>
             <input placeholder="titulo" />
             <input placeholder="Precio" />
-            <input placeholder="Descripción" style={{}} />
-          </div>
-
-          <div>
-            <button style={{ marginBottom: "3rem" }}>Publicar</button>
+            <input
+              placeholder="Descripción"
+              style={{ paddingBottom: "5rem" }}
+            />
+            <button>Publicar</button>
           </div>
         </div>
         <div id="right">

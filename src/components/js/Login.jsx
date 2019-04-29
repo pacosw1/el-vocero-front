@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "../css/Login.css";
+import { NavLink } from "react-router-dom";
+
 let axios = require("../config/axios");
 class Login extends Component {
   state = {
@@ -41,7 +43,12 @@ class Login extends Component {
             type="password"
             placeholder="password"
           />
+
           <button onClick={() => this.onSubmit()}>Sign in</button>
+          <p>or</p>
+          <NavLink style={{ color: "blue" }} to="/register">
+            <h2>Sign Up</h2>
+          </NavLink>
         </div>
       </div>
     );

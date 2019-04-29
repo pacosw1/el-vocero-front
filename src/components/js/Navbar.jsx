@@ -38,7 +38,7 @@ class Navbar extends Component {
 
 const LoggedIn = props => {
   return (
-    <NavLink className="no-link" to="/account">
+    <NavLink className="no-link" to="/account/profile">
       {props.username}
     </NavLink>
   );

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../css/Account.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, Route } from "react-router-dom";
+import NewAd from "./NewAd";
 
 let axios = require("../config/axios");
 class Account extends Component {
@@ -14,21 +15,27 @@ class Account extends Component {
     });
   }
   render() {
-    let { username, email } = this.state.user;
+    let { user } = this.state;
     return (
       <div className="account">
         <div>
-          <h3>Personal Info</h3>
-          <h3>Ads</h3>
+          <NavLink to="/account/profile">
+            <h3>Personal Details</h3>
+          </NavLink>
+          <NavLink to="/account/new">
+            <h3>Post Ad</h3>
+          </NavLink>
+
           <NavLink to="/logout">
-            <h1>Logout</h1>
+            <h2>Logout</h2>
           </NavLink>
         </div>
         <div>
-          <h5>Username</h5>
-          <p>{username}</p>
-          <h5>Email</h5>
-          <p>{email}</p>
+          <Route
+            path="/account/profile"
+            render={props => <PersonalInfo user={user} {...props} />}
+          />
+          <Route path="/account/new" component={NewAd} />
         </div>
       </div>
     );
@@ -36,3 +43,15 @@ class Account extends Component {
 }
 
 export default Account;
+
+const PersonalInfo = props => {
+  let { username, email } = props.user;
+  return (
+    <div>
+      <h5>Username</h5>
+      <p>{username}</p>
+      <h5>Email</h5>
+      <p>{email}</p>
+    </div>
+  );
+};

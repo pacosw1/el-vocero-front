@@ -22,10 +22,6 @@
   font-size: 0.8rem;
 }
 
-div {
-  border: 0px solid;
-}
-
 #foto:hover {
   transform: scale(1.04);
   transition: 0.5s;

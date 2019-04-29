@@ -8,10 +8,11 @@
   flex-direction: column;
   align-items: center;
 }
-.input-box input,
-button {
+.login button,
+.login input {
   height: 4rem;
   margin: 0.5rem 0rem;
+  width: 50%;
 }
 
 .input-box input {
