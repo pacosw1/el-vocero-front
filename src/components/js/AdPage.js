@@ -25,18 +25,15 @@ class Item extends Component {
     let { imagePath, user } = this.state.item;
 
     return (
-      <React.Fragment>
-        <div className="item-block pic">
-          <div className="photo">
-            <div className="item-photo">
-              <img src={this.state.images[0]} alt=" " />
-            </div>
-          </div>
+      <div className="item">
+        <div id="foto">
+          <img src={this.state.images[0]} alt=" " />
         </div>
+
         <div className="item-block inf">
           <ItemInfo item={this.state.item} username={user.username} />
         </div>
-      </React.Fragment>
+      </div>
     );
   }
 }
