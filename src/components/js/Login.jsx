@@ -19,7 +19,7 @@ class Login extends Component {
     if (status == 1) {
       localStorage.token = token;
       window.location = "/";
-    }
+    } else if (status == 0) alert(message);
   };
   onChange(field) {
     let { account } = this.state;
