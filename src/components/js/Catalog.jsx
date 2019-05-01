@@ -20,7 +20,7 @@ class Catalog extends Component {
     let list = items.map(item => {
       return (
         <NavLink className="no-link" to={`ads/${item._id}`}>
-          <Preview item={item} />
+          {item < 1 ? "No items in db" : <Preview item={item} />}
         </NavLink>
       );
     });
