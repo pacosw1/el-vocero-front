@@ -24,6 +24,16 @@
   margin-top: 0.5rem;
 }
 
+.title {
+  font-size: 0.8rem;
+  color: black;
+  font-style: italic;
+}
+
+.price {
+  font-size: 0.8rem;
+}
+
 #info * {
   margin: 0.25rem;
 }

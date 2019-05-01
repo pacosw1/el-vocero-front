@@ -18,8 +18,8 @@ class Preview extends Component {
           <img src={this.state.images[0]} alt={""} />
         </div>
         <div id="info">
-          <h3>{title}</h3>
-          <h5 style={{ fontSize: ".8rem" }}>${price}</h5>
+          <p className="title">{title}</p>
+          <p className="price">${price}</p>
         </div>
       </div>
     );
