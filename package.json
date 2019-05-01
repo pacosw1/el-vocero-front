@@ -19,7 +19,6 @@
     "react-scripts": "3.0.0",
     "react-toastify": "^5.0.0-rc.6"
   },
-  "proxy": "https://el-vocero-front.herokuapp.com/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
