@@ -5,7 +5,7 @@ import Content from "./Content";
 import { Footer } from "./Footer";
 
 var jwtDecode = require("jwt-decode");
-let axios = require("../config/axios");
+// let axios = require("../config/axios");
 
 class Vocero extends Component {
   state = {
@@ -15,11 +15,11 @@ class Vocero extends Component {
   };
 
   async componentDidMount() {
-    let data = await axios.getAds;
-    this.setState({
-      data: data,
-      items: data
-    });
+    // let data = await axios.getAds;
+    // this.setState({
+    //   data: data,
+    //   items: data
+    // });
   }
   render() {
     let { items } = this.state;

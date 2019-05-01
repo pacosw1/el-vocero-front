@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-let axios = require("../config/axios");
+// let axios = require("../config/axios");
 require("../css/NewAd.css");
 let FormData = require("form-data");
 class NewAd extends Component {
@@ -14,22 +14,21 @@ class NewAd extends Component {
     }
   };
 
-  async componentDidMount() {
-    let { post } = this.state;
-    let copy = { ...post };
-    copy.userId = await axios.getUser()._id;
-    this.setState({
-      post: copy
-    });
-  }
+  // async componentDidMount() {
+  //   let { post } = this.state;
+  //   let copy = { ...post };
+  //   copy.userId = await axios.getUser()._id;
+  //   this.setState({
+  //     post: copy
+  //   });
+  // }
   onSubmit = async () => {
-    let { post } = this.state;
-    let formData = new FormData();
-    formData.append("file", post.file);
-    let ad = await axios.createAd(post, formData);
-    console.log(ad);
-    window.location = "/";
-
+    // let { post } = this.state;
+    // let formData = new FormData();
+    // formData.append("file", post.file);
+    // let ad = await axios.createAd(post, formData);
+    // console.log(ad);
+    // window.location = "/";
     // for (let key in post) {
     //   formData.append(key, post[`${key}`]);
     // }
