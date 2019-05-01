@@ -4,7 +4,7 @@
 
   flex-direction: column;
 
-  margin: 0rem 1rem;
+  margin: 0rem 0.2rem;
   justify-content: space-between;
   transition: 1s;
 }
