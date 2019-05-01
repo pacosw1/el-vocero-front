@@ -3,7 +3,6 @@ let jwtDecode = require("jwt-decode");
 let _ = require("lodash");
 
 axios.defaults.baseURL = "http://localhost:3001/";
-
 exports.getAds = axios
   .get("ads")
   .then(result => {

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../css/AdPage.css";
 import { NavLink } from "react-router-dom";
-let axios = require("../config/axios");
+let { getItemById, getImage } = require("../config/axios");
 class Item extends Component {
   state = {
     item: {
@@ -13,8 +13,8 @@ class Item extends Component {
   async componentWillMount() {
     let { match } = this.props;
     let id = match.params.id;
-    let item = await axios.getItemById(id);
-    let images = await axios.getImage(id);
+    let item = await getItemById(id);
+    let images = await getImage(id);
     this.setState({
       item: item,
       images: images

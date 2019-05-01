@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "../config/axios";
+let axios = require("../config/axios");
 require("../css/NewAd.css");
 let FormData = require("form-data");
 class NewAd extends Component {
