@@ -3,7 +3,7 @@ import Preview from "./Preview";
 import { NavLink } from "react-router-dom";
 import "../css/Catalog.css";
 import Sidebar from "./Sidebar";
-import axios from "../config/axios";
+let axios = require("../config/axios");
 class Catalog extends Component {
   state = {
     user: {}
