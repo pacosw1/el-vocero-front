@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import "../css/Vocero.css";
 import Navbar from "./Navbar";
 import Content from "./Content";
 import { Footer } from "./Footer";
