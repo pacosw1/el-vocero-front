@@ -3,14 +3,13 @@
   background-color: rgb(255, 255, 255);
 
   flex-direction: column;
-
-  margin: 0rem 0.2rem;
+  flex: 1 100%;
+  margin: 0rem 1rem;
   justify-content: space-between;
   transition: 1s;
 }
 #foto {
-  height: 12rem;
-
+  height: 200px;
   width: 100%;
 }
 #foto img {
@@ -42,4 +41,19 @@
 #foto:hover {
   transform: scale(1.04);
   transition: 0.5s;
+}
+
+@media only screen and (max-width: 900px) {
+  .preview {
+    flex-direction: column;
+    flex: 1 100%;
+  }
+  #foto {
+    height: auto;
+    width: 100%;
+  }
+  #foto img {
+    width: inherit;
+    height: auto;
+  }
 }

@@ -3,11 +3,14 @@
     flex: 1 100%;
     flex-direction: column;
     justify-content: center;
+    margin: 0;
   }
 
   .catalog {
     flex: 1 100%;
     justify-content: center;
+    flex-direction: column;
+    margin: 0;
   }
 
   .sidebar {
@@ -16,31 +19,6 @@
     padding: 0;
     height: 0;
     margin: 0;
-  }
-
-  .navbar {
-    padding: 0.5rem;
-    flex: 1 100%;
-  }
-}
-@media only screen and (max-width: 400px) {
-  .catalog-container {
-    flex-direction: column;
-    justify-content: center;
-  }
-  #foto img {
-    height: auto;
-    width: 100%;
-
-    transition: 0.5s;
-  }
-  .catalog {
-    flex: 1 100%;
-    justify-content: center;
-  }
-  .sidebar {
-    display: none;
-    visibility: hidden;
   }
 
   .navbar {
