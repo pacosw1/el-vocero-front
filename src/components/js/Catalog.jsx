@@ -13,16 +13,18 @@ class Catalog extends Component {
     let { items } = this.props;
     let list = items.map(item => {
       return (
-        <NavLink className="no-link" to={`ads/${item._id}`}>
-          <Preview item={item} />
-        </NavLink>
+        <React.Fragment key={item._id}>
+          <NavLink className="no-link" to={`ads/${item._id}`}>
+            <Preview item={item} />
+          </NavLink>
+        </React.Fragment>
       );
     });
 
     return (
       <div className="catalog-container">
         <Sidebar id="side" />
-        <div className="catalog">{items < 1 ? "No items in db" : list}</div>
+        <div className="catalog">{items < 1 ? "No results" : list}</div>
       </div>
     );
   }

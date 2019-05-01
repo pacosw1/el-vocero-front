@@ -1,6 +1,5 @@
 .login {
   flex: 1 50%;
-  margin: 0rem 30%;
 }
 
 .input-box {
@@ -12,10 +11,14 @@
 .login input {
   height: 4rem;
   margin: 0.5rem 0rem;
-  width: 50%;
+  width: 18rem;
 }
 
 .input-box input {
   width: 15.6rem;
   padding: 0rem 1rem;
+}
+
+div {
+  border: 0px solid;
 }

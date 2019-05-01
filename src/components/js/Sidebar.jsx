@@ -1,14 +1,32 @@
 import React, { Component } from "react";
 import "../css/Sidebar.css";
+let axios = require("../config/axios");
 class Sidebar extends Component {
-  state = {};
+  state = {
+    categories: []
+  };
+
+  async componentDidMount() {
+    let { categories } = this.state;
+    let copy = [...categories];
+    copy = await axios.getCategories;
+    this.setState({
+      categories: copy.data
+    });
+  }
   render() {
+    let { categories } = this.state;
+    let list = categories.map(item => {
+      return (
+        <li key={item._id} value={item._id}>
+          {item.name}
+        </li>
+      );
+    });
     return (
       <div className="sidebar">
-        <ul>
-          <li>Sidebar</li>
-        </ul>
-        <ul />
+        <h3 style={{ margin: "0", marginBottom: ".5rem" }}>Categories</h3>
+        {list}
       </div>
     );
   }

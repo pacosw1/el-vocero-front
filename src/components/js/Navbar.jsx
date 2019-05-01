@@ -30,7 +30,7 @@ class Navbar extends Component {
             <p>El Vocero</p>
           </NavLink>
         </div>
-        <SearchBar search={search} />
+
         <div id="right">
           {loggedIn ? <LoggedIn username={user.username} /> : <NotLogged />}
         </div>

@@ -1,29 +1,39 @@
 import React, { Component } from "react";
 let axios = require("../config/axios");
 require("../css/NewAd.css");
+let _ = require("lodash");
 let FormData = require("form-data");
 class NewAd extends Component {
   state = {
+    categories: [],
     post: {
       userId: "",
       title: "",
       description: "",
       price: "",
       imagePath: "",
-      file: {}
+      file: {},
+      category: {}
     }
   };
 
   async componentDidMount() {
-    let { post } = this.state;
+    let { post, categories } = this.state;
     let copy = { ...post };
-    copy.userId = await axios.getUser()._id;
+    let catCopy = [...categories];
+    catCopy = await axios.getCategories;
+    console.log(catCopy);
     this.setState({
-      post: copy
+      post: copy,
+      categories: catCopy.data
     });
   }
   onSubmit = async () => {
-    let { post } = this.state;
+    let { post, categories } = this.state;
+    let cat = categories.find(item => item._id == post.category);
+    cat = _.pick(cat, ["_id", "name"]);
+    post.category = cat;
+    console.log(post);
     let formData = new FormData();
     formData.append("file", post.file);
     let ad = await axios.createAd(post, formData);
@@ -45,6 +55,7 @@ class NewAd extends Component {
       post: copy
     });
   }
+
   loadImage(event) {
     let { post } = this.state;
     post.imagePath = URL.createObjectURL(event.target.files[0]);
@@ -54,6 +65,11 @@ class NewAd extends Component {
     });
   }
   render() {
+    let { categories } = this.state;
+    let catList = categories.map(category => {
+      return <option value={category._id}>{category.name}</option>;
+    });
+
     return (
       <div className="new-ad">
         <div className="vertical-container">
@@ -75,6 +91,15 @@ class NewAd extends Component {
               onChange={e => this.onChange(e)}
               style={{ paddingBottom: "5rem" }}
             />
+            <span>Category</span>
+            <select
+              name="category"
+              style={{ marginTop: ".5rem" }}
+              onChange={e => this.onChange(e)}
+            >
+              {catList}
+            </select>
+
             <button onClick={() => this.onSubmit()}>Publicar</button>
           </div>
         </div>

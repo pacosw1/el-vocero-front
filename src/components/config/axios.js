@@ -1,6 +1,6 @@
 let axios = require("axios");
 let jwtDecode = require("jwt-decode");
-let _ = require("lodash");
+// let _ = require("lodash");
 
 axios.defaults.baseURL = "https://el-vocero-back.herokuapp.com";
 exports.getAds = axios
@@ -52,6 +52,15 @@ exports.getImage = id =>
       return result.data;
     })
     .catch(err => err);
+
+exports.getCategories = axios
+  .get("categories")
+  .then(res => {
+    return res;
+  })
+  .catch(err => {
+    return err;
+  });
 
 exports.create = id =>
   axios

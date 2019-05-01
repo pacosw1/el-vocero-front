@@ -9,7 +9,8 @@
   transition: 1s;
 }
 #foto {
-  height: 200px;
+  height: 12rem;
+
   width: 100%;
 }
 #foto img {

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../css/AdPage.css";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 let { getItemById, getImage } = require("../config/axios");
 class Item extends Component {
   state = {
