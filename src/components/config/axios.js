@@ -2,7 +2,7 @@ let axios = require("axios");
 let jwtDecode = require("jwt-decode");
 let _ = require("lodash");
 
-axios.defaults.baseURL = "http://localhost:3001/";
+axios.defaults.baseURL = "https://el-vocero-back.herokuapp.com";
 exports.getAds = axios
   .get("ads")
   .then(result => {
