@@ -20,7 +20,7 @@ class Catalog extends Component {
     let list = items.map(item => {
       return (
         <NavLink className="no-link" to={`ads/${item._id}`}>
-          {item < 1 ? "No items in db" : <Preview item={item} />}
+          <Preview item={item} />
         </NavLink>
       );
     });
@@ -28,7 +28,7 @@ class Catalog extends Component {
     return (
       <div className="catalog-container">
         <Sidebar id="side" />
-        <div className="catalog">{list}</div>
+        <div className="catalog">{items < 1 ? "No items in db" : list}</div>
       </div>
     );
   }
