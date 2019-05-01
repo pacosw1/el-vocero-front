@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../css/Navbar.css";
 import { NavLink } from "react-router-dom";
+import SearchBar from "./SearchBar";
 let axios = require("../config/axios");
 class Navbar extends Component {
   state = {
@@ -21,6 +22,7 @@ class Navbar extends Component {
   }
   render() {
     let { loggedIn, user } = this.state;
+    let { search } = this.props;
     return (
       <div className="navbar">
         <div id="left">
@@ -28,6 +30,7 @@ class Navbar extends Component {
             <p>El Vocero</p>
           </NavLink>
         </div>
+        <SearchBar search={search} />
         <div id="right">
           {loggedIn ? <LoggedIn username={user.username} /> : <NotLogged />}
         </div>

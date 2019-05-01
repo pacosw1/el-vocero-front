@@ -9,17 +9,31 @@ let axios = require("../config/axios");
 
 class Vocero extends Component {
   state = {
-    user: {}
+    user: {},
+    data: [],
+    items: []
   };
 
   async componentDidMount() {
-    this.setState({});
+    let data = await axios.getAds;
+    this.setState({
+      data: data,
+      items: data
+    });
   }
+  search = keyword => {
+    let { data } = this.state;
+    let res = data.filter(item => item.title.toLowerCase().includes(keyword));
+    this.setState({
+      items: res
+    });
+  };
   render() {
+    let { items } = this.state;
     return (
       <div>
-        <Navbar />
-        <Content />
+        <Navbar search={this.search} />
+        <Content items={items} />
         <Footer />
       </div>
     );
