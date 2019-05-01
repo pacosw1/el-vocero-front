@@ -45,9 +45,8 @@ class Login extends Component {
           />
 
           <button onClick={() => this.onSubmit()}>Sign in</button>
-          <p>or</p>
-          <NavLink style={{ color: "blue" }} to="/register">
-            <h2>Sign Up</h2>
+          <NavLink style={{ color: "blue !important" }} to="/register">
+            <h2 style={{ color: "grey" }}>Sign Up</h2>
           </NavLink>
         </div>
       </div>
