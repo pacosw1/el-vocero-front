@@ -9,24 +9,17 @@ let axios = require("../config/axios");
 
 class Vocero extends Component {
   state = {
-    items: [],
-    data: [],
     user: {}
   };
 
   async componentDidMount() {
-    let data = await axios.getAds;
-    this.setState({
-      data: data,
-      items: data
-    });
+    this.setState({});
   }
   render() {
-    let { items } = this.state;
     return (
       <div>
         <Navbar />
-        <Content items={items} />
+        <Content />
         <Footer />
       </div>
     );

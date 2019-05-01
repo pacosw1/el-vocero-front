@@ -6,17 +6,21 @@ import Sidebar from "./Sidebar";
 let axios = require("../config/axios");
 class Catalog extends Component {
   state = {
-    user: {}
+    user: {},
+    items: []
   };
 
   async componentDidMount() {
+    let data = await axios.getAds;
     let user = await axios.getUser();
+    console.log(data);
     this.setState({
-      user: user
+      user: user,
+      items: data
     });
   }
   render() {
-    let { items } = this.props;
+    let { items } = this.state;
     let list = items.map(item => {
       return (
         <NavLink className="no-link" to={`ads/${item._id}`}>
