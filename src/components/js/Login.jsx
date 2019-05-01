@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../css/Login.css";
 import { NavLink } from "react-router-dom";
 
-// let axios = require("../config/axios");
+let axios = require("../config/axios");
 class Login extends Component {
   state = {
     account: {
@@ -12,14 +12,14 @@ class Login extends Component {
   };
 
   onSubmit = async () => {
-    // let { account } = this.state;
-    // let result = await axios.login(account);
-    // console.log(result);
-    // let { status, message, token } = result.data;
-    // if (status == 1) {
-    //   localStorage.token = token;
-    //   window.location = "/";
-    // }
+    let { account } = this.state;
+    let result = await axios.login(account);
+    console.log(result);
+    let { status, message, token } = result.data;
+    if (status == 1) {
+      localStorage.token = token;
+      window.location = "/";
+    }
   };
   onChange(field) {
     let { account } = this.state;

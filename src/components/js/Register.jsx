@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// let axios = require("../config/axios");
+let axios = require("../config/axios");
 class Register extends Component {
   state = {
     account: {
@@ -10,22 +10,22 @@ class Register extends Component {
   };
 
   async onSubmit() {
-    // let { account } = this.state;
-    // let emailCheck = await axios.emailCheck(account.email);
-    // let usernameCheck = await axios.usernameCheck(account.username);
-    // let { status, message } = emailCheck.data;
-    // console.log(emailCheck.data);
-    // console.log(usernameCheck.data);
-    // if (status == 1) return alert(message);
-    // if (usernameCheck.data.status == 1)
-    //   return alert(usernameCheck.data.message);
-    // await axios.register(account);
-    // let login = await axios.login(account);
-    // if (login.data.status == 1) {
-    //   localStorage.token = login.data.token;
-    //   window.location = "/";
-    // }
-    // // window.location = "/";
+    let { account } = this.state;
+    let emailCheck = await axios.emailCheck(account.email);
+    let usernameCheck = await axios.usernameCheck(account.username);
+    let { status, message } = emailCheck.data;
+    console.log(emailCheck.data);
+    console.log(usernameCheck.data);
+    if (status == 1) return alert(message);
+    if (usernameCheck.data.status == 1)
+      return alert(usernameCheck.data.message);
+    await axios.register(account);
+    let login = await axios.login(account);
+    if (login.data.status == 1) {
+      localStorage.token = login.data.token;
+      window.location = "/";
+    }
+    // window.location = "/";
   }
   onChange(field) {
     let { account } = this.state;

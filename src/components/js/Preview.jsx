@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import "../css/Preview.css";
-// let axios = require("../config/axios");
+let axios = require("../config/axios");
 class Preview extends Component {
   state = {
     images: []
   };
   async componentDidMount() {
-    // this.setState({
-    //   images: await axios.getImage(this.props.item._id)
-    // });
+    this.setState({
+      images: await axios.getImage(this.props.item._id)
+    });
   }
   render() {
     let { _id, title, price } = this.props.item;

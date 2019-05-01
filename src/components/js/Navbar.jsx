@@ -1,23 +1,23 @@
 import React, { Component } from "react";
 import "../css/Navbar.css";
 import { NavLink } from "react-router-dom";
-// let axios = require("../config/axios");
+let axios = require("../config/axios");
 class Navbar extends Component {
   state = {
     user: {}
   };
 
   componentDidMount() {
-    //   if (localStorage.token) {
-    //     this.setState({
-    //       user: axios.getUser(),
-    //       loggedIn: true
-    //     });
-    //   } else {
-    //     this.setState({
-    //       loggedIn: false
-    //     });
-    //   }
+    if (localStorage.token) {
+      this.setState({
+        user: axios.getUser(),
+        loggedIn: true
+      });
+    } else {
+      this.setState({
+        loggedIn: false
+      });
+    }
   }
   render() {
     let { loggedIn, user } = this.state;
