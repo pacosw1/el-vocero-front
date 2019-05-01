@@ -11,6 +11,8 @@ class Register extends Component {
 
   async onSubmit() {
     let { account } = this.state;
+    if (account.email == "" || account.username == "" || account.password == "")
+      return alert("Fill in all required fields");
     let emailCheck = await axios.emailCheck(account.email);
     let usernameCheck = await axios.usernameCheck(account.username);
     let { status, message } = emailCheck.data;
