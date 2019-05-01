@@ -13,12 +13,11 @@
   margin: 0.5rem 0rem;
   width: 18rem;
   border-radius: 0.2rem;
-  box-shadow: none;
 }
 
 .input-box input {
   border-style: solid;
-  border-color: rgb(196, 196, 196);
+  border-color: rgb(204, 204, 204);
   border-width: 0.09rem;
 
   width: 15.6rem;
@@ -27,7 +26,7 @@
 }
 
 input::placeholder {
-  color: rgb(133, 133, 133);
+  color: rgb(134, 134, 134);
 }
 
 div {

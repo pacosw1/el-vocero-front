@@ -50,7 +50,7 @@ const ItemInfo = props => {
       <p>{description}</p>
       <p>{location}</p>
       <h3>Send a message to {props.username}</h3>
-      <input type="text" style={{ padding: ".5rem", paddingBottom: "5rem " }} />
+      <input id="message" type="text" />
       <button>Send a message</button>
     </div>
   );

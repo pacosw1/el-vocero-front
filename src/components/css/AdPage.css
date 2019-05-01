@@ -7,6 +7,11 @@
   transition: 1s;
 }
 
+#message {
+  padding-bottom: 5rem;
+  border-radius: 0.2rem;
+}
+
 .item-photo {
   height: 600px;
   width: 100%;
@@ -55,16 +60,14 @@ select {
 .form-control * {
   width: 100%;
 }
-.item-block {
-  width: 100%;
-  margin: 0rem 2rem;
-}
+
 .inf {
   width: 40%;
 }
 
 @media only screen and (max-width: 900px) {
   .item {
+    margin-top: 10rem;
     flex-direction: column;
     align-items: center;
     margin: 0rem 2rem;
@@ -94,11 +97,12 @@ select {
     margin-bottom: 0.5rem;
   }
 }
+
 @media only screen and (max-width: 650px) {
   .item {
     flex-direction: column;
     align-items: center;
-    margin: 0rem 2rem;
+    margin: 2.5rem 2rem;
   }
   .inf {
     width: 100%;
