@@ -54,9 +54,9 @@ class Item extends Component {
     copy.adId = id;
     copy.receiverId = item.user._id;
     copy.senderId = sender._id;
+
     if (!sender._id) {
-      alert("You need to be logged in to send messages");
-      return (window.location = "/login");
+      copy.senderId = "5ccb46001c9d440000a69892";
     }
     if (sender._id == item.user._id) {
       return alert("You can't send messages to yourself");
