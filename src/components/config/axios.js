@@ -12,6 +12,10 @@ exports.getAds = axios
     return err;
   });
 
+exports.getMessages = userId => {
+  return axios.get(`/messages/${userId}`);
+};
+
 exports.createAd = async (post, formData) => {
   post.active = 1;
   post.user = await axios.get(`users/${post.userId}`);

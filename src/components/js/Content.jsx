@@ -11,7 +11,7 @@ import Logout from "./Logout";
 class Content extends Component {
   state = {};
   render() {
-    let { items, loading, onCategory } = this.props;
+    let { items, loading, onCategory, search } = this.props;
     return (
       <div className="content">
         <Route path="/account" component={Account} />
@@ -25,6 +25,7 @@ class Content extends Component {
           exact
           render={props => (
             <Catalog
+              search={search}
               items={items}
               loading={loading}
               onCategory={onCategory}

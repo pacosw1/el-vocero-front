@@ -3,6 +3,7 @@ import "../css/Vocero.css";
 import Navbar from "./Navbar";
 import Content from "./Content";
 import { Footer } from "./Footer";
+import SearchBar from "./SearchBar";
 
 let axios = require("../config/axios");
 
@@ -55,8 +56,14 @@ class Vocero extends Component {
     console.log(window.location);
     return (
       <div>
-        <Navbar search={this.search} />
-        <Content items={items} loading={loading} onCategory={this.onCategory} />
+        <Navbar />
+
+        <Content
+          items={items}
+          search={this.search}
+          loading={loading}
+          onCategory={this.onCategory}
+        />
       </div>
     );
   }

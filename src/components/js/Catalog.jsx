@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import "../css/Catalog.css";
 import Sidebar from "./Sidebar";
 import LoadingScreen from "./LoadinScreen";
+import SearchBar from "./SearchBar";
 let axios = require("../config/axios");
 class Catalog extends Component {
   state = {
@@ -11,7 +12,7 @@ class Catalog extends Component {
   };
 
   render() {
-    let { items, loading, onCategory } = this.props;
+    let { items, loading, onCategory, search } = this.props;
     let list = items.map(item => {
       return (
         <React.Fragment key={item._id}>
@@ -26,8 +27,12 @@ class Catalog extends Component {
     else
       return (
         <div className="catalog-container">
-          <Sidebar id="side" onCategory={onCategory} />
-          <div className="catalog">{items < 1 ? "No results" : list}</div>
+          <SearchBar search={search} />
+          <div style={{ display: "flex" }}>
+            <Sidebar id="side" onCategory={onCategory} />
+
+            <div className="catalog">{items < 1 ? "No results" : list}</div>
+          </div>
         </div>
       );
   }

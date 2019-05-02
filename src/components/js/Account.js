@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../css/Account.css";
 import { NavLink, Route } from "react-router-dom";
 import NewAd from "./NewAd";
+import Messages from "./Messages";
 
 let axios = require("../config/axios");
 class Account extends Component {
@@ -22,7 +23,7 @@ class Account extends Component {
           <NavLink to="/account/profile">
             <h3>Personal Details</h3>
           </NavLink>
-          <NavLink to="/account/profile">
+          <NavLink to="/account/messages">
             <h3>Messages</h3>
           </NavLink>
           <NavLink to="/account/new">
@@ -38,6 +39,11 @@ class Account extends Component {
             path="/account/profile"
             render={props => <PersonalInfo user={user} {...props} />}
           />
+          <Route
+            path="/account/messages"
+            render={props => <Messages user={user} {...props} />}
+          />
+
           <Route path="/account/new" component={NewAd} />
         </div>
       </div>
