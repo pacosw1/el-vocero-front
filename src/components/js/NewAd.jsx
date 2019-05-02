@@ -82,7 +82,7 @@ class NewAd extends Component {
       <div className="new-ad">
         <div className="vertical-container">
           <div className="left-info">
-            <h1>Crear nuevo anuncio</h1>
+            <h1>Post a new Ad</h1>
             <input
               name="title"
               placeholder="titulo"
@@ -112,7 +112,7 @@ class NewAd extends Component {
           </div>
         </div>
         <div id="right">
-          <h1>Agrega una foto a tu anuncio</h1>
+          <h1>Add an image</h1>
           <input
             name="imagePath"
             type="file"
