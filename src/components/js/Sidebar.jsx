@@ -17,7 +17,7 @@ class Sidebar extends Component {
   }
   render() {
     let { categories } = this.state;
-    let { onCategory, search } = this.props;
+    let { onCategory } = this.props;
     let list = categories.map(item => {
       return (
         <React.Fragment>
@@ -33,8 +33,6 @@ class Sidebar extends Component {
     });
     return (
       <div className="sidebar">
-        <SearchBar search={search} />
-
         <h3 style={{ margin: "0", marginBottom: ".5rem" }}>Categories</h3>
         <li onClick={() => onCategory(0)}>All</li>
         {list}

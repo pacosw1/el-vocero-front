@@ -27,6 +27,8 @@ class Catalog extends Component {
     else
       return (
         <div className="catalog-container">
+          <SearchBar search={search} />
+
           <div className="catalog-sidebar">
             <Sidebar id="side" onCategory={onCategory} search={search} />
 
