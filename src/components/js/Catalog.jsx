@@ -11,7 +11,7 @@ class Catalog extends Component {
   };
 
   render() {
-    let { items, loading } = this.props;
+    let { items, loading, onCategory } = this.props;
     let list = items.map(item => {
       return (
         <React.Fragment key={item._id}>
@@ -26,7 +26,7 @@ class Catalog extends Component {
     else
       return (
         <div className="catalog-container">
-          <Sidebar id="side" />
+          <Sidebar id="side" onCategory={onCategory} />
           <div className="catalog">{items < 1 ? "No results" : list}</div>
         </div>
       );

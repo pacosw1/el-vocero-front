@@ -39,6 +39,11 @@ class Vocero extends Component {
 
   onCategory = _id => {
     let { data, items } = this.state;
+    if (_id == 0) {
+      return this.setState({
+        items: data
+      });
+    }
     let filter = data.filter(item => item.category._id == _id);
     this.setState({
       items: filter
@@ -51,7 +56,7 @@ class Vocero extends Component {
     return (
       <div>
         <Navbar search={this.search} />
-        <Content items={items} loading={loading} />
+        <Content items={items} loading={loading} onCategory={this.onCategory} />
       </div>
     );
   }

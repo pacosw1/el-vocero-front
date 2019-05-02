@@ -15,6 +15,7 @@ exports.getAds = axios
 exports.createAd = async (post, formData) => {
   post.active = 1;
   post.user = await axios.get(`users/${post.userId}`);
+  post.user = post.user.data;
   await axios.post("/ads", post).then(res => {
     formData.append("adId", res.data.item._id);
     return axios.post("/images", formData);

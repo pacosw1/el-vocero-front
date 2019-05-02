@@ -16,9 +16,10 @@ class Sidebar extends Component {
   }
   render() {
     let { categories } = this.state;
+    let { onCategory } = this.props;
     let list = categories.map(item => {
       return (
-        <li key={item._id} value={item._id}>
+        <li key={item._id} value={item._id} onClick={e => onCategory(item._id)}>
           {item.name}
         </li>
       );
@@ -26,6 +27,7 @@ class Sidebar extends Component {
     return (
       <div className="sidebar">
         <h3 style={{ margin: "0", marginBottom: ".5rem" }}>Categories</h3>
+        <li onClick={() => onCategory(0)}>All</li>
         {list}
       </div>
     );
