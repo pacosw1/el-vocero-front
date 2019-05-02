@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../css/Sidebar.css";
+import SearchBar from "./SearchBar";
 let axios = require("../config/axios");
 class Sidebar extends Component {
   state = {
@@ -16,16 +17,24 @@ class Sidebar extends Component {
   }
   render() {
     let { categories } = this.state;
-    let { onCategory } = this.props;
+    let { onCategory, search } = this.props;
     let list = categories.map(item => {
       return (
-        <li key={item._id} value={item._id} onClick={e => onCategory(item._id)}>
-          {item.name}
-        </li>
+        <React.Fragment>
+          <li
+            key={item._id}
+            value={item._id}
+            onClick={e => onCategory(item._id)}
+          >
+            {item.name}
+          </li>
+        </React.Fragment>
       );
     });
     return (
       <div className="sidebar">
+        <SearchBar search={search} />
+
         <h3 style={{ margin: "0", marginBottom: ".5rem" }}>Categories</h3>
         <li onClick={() => onCategory(0)}>All</li>
         {list}

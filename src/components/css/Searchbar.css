@@ -1,6 +1,6 @@
 .searchbar {
   display: flex;
-  margin: 0rem 2rem;
+  margin: 0rem 0rem;
   margin-bottom: 1rem;
 }
 ::placeholder {
@@ -13,4 +13,8 @@
   border-radius: 0.3rem;
   border: 0rem solid;
   border-color: rgba(43, 43, 43, 0.192);
+}
+
+div {
+  border: 1px solid;
 }

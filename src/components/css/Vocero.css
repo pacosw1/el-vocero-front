@@ -12,8 +12,17 @@
     flex-direction: column;
     margin: 0;
   }
-
+  .catalog-sidebar {
+    flex-direction: column;
+  }
   .sidebar {
+    display: none;
+    visibility: hidden;
+    padding: 0;
+    height: 0;
+    margin: 0;
+  }
+  .sidebar * {
     display: none;
     visibility: hidden;
     padding: 0;
