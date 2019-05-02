@@ -7,21 +7,35 @@
   margin: 0rem 1rem;
   justify-content: space-between;
   transition: 1s;
+  min-width: 300px;
+  min-height: 300px;
+  animation: foto 1s ease-in-out 1;
 }
+
 #foto {
   height: 200px;
   width: 100%;
+  transition: 0.5s;
 }
+
 #foto img {
   height: 100%;
   width: auto;
-
-  transition: 0.5s;
 }
+@keyframes foto {
+  0% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 #info {
   font-size: 0.8rem;
   margin-bottom: 1.5rem;
   margin-top: 0.5rem;
+  transition: 2s;
 }
 
 .title {

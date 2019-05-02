@@ -1,27 +1,28 @@
-.photo {
+#photo {
   display: flex;
   flex-direction: column;
-  height: 0px;
-  flex: 3 100%;
+  flex: 1;
   overflow-y: scroll;
-  transition: 1s;
+  height: auto;
+  margin: 0rem 4rem;
+}
+@keyframes photoLoad {
+  0% {
+    transform: translateY(-200px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+#photo img {
+  width: 100%;
+  height: auto;
+  animation: photoLoad 1s 1;
 }
 
 #message {
   padding-bottom: 5rem;
   border-radius: 0.2rem;
-}
-
-.item-photo {
-  height: 600px;
-  width: 100%;
-  transition: 1s;
-}
-.item-photo img {
-  height: auto;
-  width: 100%;
-
-  transition: 1s;
 }
 
 .item-info * {
@@ -43,9 +44,18 @@ select {
   flex: 1;
   font-size: 0.8rem;
   flex-direction: column;
-  transition: 2s;
+  animation: onLoad 1.5s 1;
+  z-index: 1;
 }
 
+@keyframes onLoad {
+  0% {
+    transform: translateY(500px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 .item button {
   width: 100%;
   padding: 0.8rem;
@@ -107,9 +117,9 @@ select {
   .inf {
     width: 100%;
   }
-  .photo {
+  #photo {
     flex-wrap: wrap;
-
+    margin: 0;
     transition: 1s;
   }
   .navbar {

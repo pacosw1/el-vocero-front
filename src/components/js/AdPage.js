@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import "../css/AdPage.css";
+import LoadinScreen from "./LoadinScreen";
 // import { NavLink } from "react-router-dom";
 let { getItemById, getImage } = require("../config/axios");
 class Item extends Component {
   state = {
     item: {
-      user: {}
+      user: {},
+      loading: true
     },
     images: []
   };
@@ -17,24 +19,32 @@ class Item extends Component {
     let images = await getImage(id);
     this.setState({
       item: item,
-      images: images
+      images: images,
+      loading: false
     });
   }
 
   render() {
-    let { imagePath, user } = this.state.item;
+    let { imagePath, user, loading } = this.state.item;
+    let page = {};
 
-    return (
-      <div className="item">
-        <div id="foto">
-          <img src={this.state.images[0]} alt=" " />
-        </div>
+    if (loading) {
+      page = <LoadinScreen />;
+    } else {
+      page = (
+        <div className="item">
+          <div id="photo">
+            <img src={this.state.images[0]} alt=" " />
+          </div>
 
-        <div className="item-block inf">
-          <ItemInfo item={this.state.item} username={user.username} />
+          <div className="item-block inf">
+            <ItemInfo item={this.state.item} username={user.username} />
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
+
+    return page;
   }
 }
 

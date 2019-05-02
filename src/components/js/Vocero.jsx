@@ -10,14 +10,17 @@ class Vocero extends Component {
   state = {
     user: {},
     data: [],
-    items: []
+    items: [],
+    loading: true
   };
 
   async componentDidMount() {
     let data = await axios.getAds;
+
     this.setState({
       data: data,
-      items: data
+      items: data,
+      loading: false
     });
   }
   search = keyword => {
@@ -34,13 +37,12 @@ class Vocero extends Component {
     });
   };
   render() {
-    let { items } = this.state;
+    let { items, loading } = this.state;
     console.log(window.location);
     return (
       <div>
         <Navbar search={this.search} />
-        <Content items={items} />
-        <Footer />
+        <Content items={items} loading={loading} />
       </div>
     );
   }
