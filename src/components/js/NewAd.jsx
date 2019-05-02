@@ -37,15 +37,17 @@ class NewAd extends Component {
     console.log(post);
     let formData = new FormData();
     formData.append("file", post.file);
-    let ad = await axios.createAd(post, formData);
-    console.log(ad);
-    window.location = "/";
+    console.log(post);
     for (let key in post) {
       formData.append(key, post[`${key}`]);
     }
     for (let key of formData.entries()) {
       console.log(key[0] + key[1]);
     }
+
+    let ad = await axios.createAd(post, formData);
+    console.log(ad);
+    window.location = "/";
   };
 
   onChange(field) {
