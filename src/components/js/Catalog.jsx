@@ -27,7 +27,6 @@ class Catalog extends Component {
     else
       return (
         <div className="catalog-container">
-          <SearchBar search={search} />
           <div style={{ display: "flex" }}>
             <Sidebar id="side" onCategory={onCategory} />
 
