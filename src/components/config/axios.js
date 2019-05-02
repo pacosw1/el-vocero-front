@@ -12,6 +12,10 @@ exports.getAds = axios
     return err;
   });
 
+exports.sendMessage = postMessage => {
+  return axios.post("/messages", postMessage);
+};
+
 exports.getMessages = userId => {
   return axios.get(`/messages/${userId}`);
 };

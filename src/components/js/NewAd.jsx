@@ -13,7 +13,7 @@ class NewAd extends Component {
       price: "",
       imagePath: "",
       file: {},
-      category: {}
+      category: ""
     }
   };
 
@@ -31,6 +31,17 @@ class NewAd extends Component {
   }
   onSubmit = async () => {
     let { post, categories } = this.state;
+    let { userId, title, description, imagePath, price, category } = post;
+
+    if (
+      userId == "" ||
+      title == "" ||
+      description == "" ||
+      price == "" ||
+      imagePath == "" ||
+      category == ""
+    )
+      return alert("fill in missing fields");
     let cat = categories.find(item => item._id == post.category);
     cat = _.pick(cat, ["_id", "name"]);
     post.category = cat;

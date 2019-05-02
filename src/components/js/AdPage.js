@@ -2,14 +2,25 @@ import React, { Component } from "react";
 import "../css/AdPage.css";
 import LoadinScreen from "./LoadinScreen";
 // import { NavLink } from "react-router-dom";
-let { getItemById, getImage } = require("../config/axios");
+let {
+  getItemById,
+  getImage,
+  getUser,
+  sendMessage
+} = require("../config/axios");
 class Item extends Component {
   state = {
     item: {
       user: {},
       loading: true
     },
-    images: []
+    images: [],
+    postMessage: {
+      text: "",
+      receiverId: "",
+      adId: "",
+      sender: ""
+    }
   };
 
   async componentWillMount() {
@@ -17,12 +28,43 @@ class Item extends Component {
     let id = match.params.id;
     let item = await getItemById(id);
     let images = await getImage(id);
+    let sender = await getUser();
     this.setState({
       item: item,
       images: images,
-      loading: false
+      loading: false,
+      sender: sender
     });
   }
+
+  onChange = value => {
+    let { postMessage } = this.state;
+    let copy = { ...postMessage };
+    copy.text = value;
+    this.setState({
+      postMessage: copy
+    });
+  };
+
+  onSubmit = async () => {
+    let { match } = this.props;
+    let id = match.params.id;
+    let { postMessage, item, sender } = this.state;
+    let copy = { ...postMessage };
+    copy.adId = id;
+    copy.receiverId = item.user._id;
+    copy.senderId = sender._id;
+    if (!sender._id) {
+      alert("You need to be logged in to send messages");
+      return (window.location = "/login");
+    }
+    if (sender._id == item.user._id) {
+      return alert("You can't send messages to yourself");
+    }
+    console.log(copy);
+    await sendMessage(copy);
+    window.location = "/";
+  };
 
   render() {
     let { imagePath, user, loading } = this.state.item;
@@ -38,7 +80,12 @@ class Item extends Component {
           </div>
 
           <div className="item-block inf">
-            <ItemInfo item={this.state.item} username={user.username} />
+            <ItemInfo
+              onSubmit={this.onSubmit}
+              onChange={this.onChange}
+              item={this.state.item}
+              username={user.username}
+            />
           </div>
         </div>
       );
@@ -60,8 +107,14 @@ const ItemInfo = props => {
       <p>{description}</p>
       <p>{location}</p>
       <h3>Send a message to {props.username}</h3>
-      <input id="message" type="text" />
-      <button>Send a message</button>
+      <input
+        style={{ padding: ".5rem", paddingBottom: "4rem", fontSize: "16px" }}
+        placeholder="Enter an email or phone number so buyer can contact you"
+        onChange={e => props.onChange(e.target.value)}
+        id="message"
+        type="text"
+      />
+      <button onClick={props.onSubmit}>Send a message</button>
     </div>
   );
 };
