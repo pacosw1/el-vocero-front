@@ -21,6 +21,7 @@ class NewAd extends Component {
     let { post, categories } = this.state;
     let copy = { ...post };
     let catCopy = [...categories];
+    copy.userId = await axios.getUser()._id;
     catCopy = await axios.getCategories;
     console.log(catCopy);
     this.setState({

@@ -36,6 +36,15 @@ class Vocero extends Component {
       items: res
     });
   };
+
+  onCategory = _id => {
+    let { data, items } = this.state;
+    let filter = data.filter(item => item.category._id == _id);
+    this.setState({
+      items: filter
+    });
+  };
+
   render() {
     let { items, loading } = this.state;
     console.log(window.location);
